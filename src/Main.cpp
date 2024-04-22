@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 
+#include "..\\include\\RSAUtils.hpp"
+#include "..\\include\\RSAKeyGenerator.hpp"
+
 int main() {
 	const int bufferSize = 1024;
 	char buffer[bufferSize];
@@ -14,12 +17,12 @@ int main() {
 		return 1;
 	}
 
-	std::streamsize butesRead = 0;
+	std::streamsize bytesRead = 0;
 	do {
 		file.read(buffer, bufferSize);
-		butesRead = file.gcount();
-		std::cout.write(buffer, butesRead);
-	} while (butesRead == bufferSize);
+		bytesRead = file.gcount();
+		std::cout.write(buffer, bytesRead);
+	} while (bytesRead == bufferSize);
 
 	file.close();
 
